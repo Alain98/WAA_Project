@@ -11,7 +11,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+
 
 /**
  * @author alain
@@ -35,8 +39,15 @@ public class Hotel {
 	@Column
 	private String type;
 	
+	@Column
+	private float stars;
+	
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<Rooms> rooms;
+	
+	@OneToOne( cascade = CascadeType.ALL)
+	@JoinColumn(name="address_id", unique = true )
+    private Address address;
 
 	public Integer getHotelId() {
 		return hotelId;
@@ -69,6 +80,14 @@ public class Hotel {
 	public void setType(String type) {
 		this.type = type;
 	}
+	
+	public float getStars() {
+		return stars;
+	}
+
+	public void setStars(float stars) {
+		this.stars = stars;
+	}
 
 	public Set<Rooms> getRooms() {
 		return rooms;
@@ -77,7 +96,13 @@ public class Hotel {
 	public void setRooms(Set<Rooms> rooms) {
 		this.rooms = rooms;
 	}
-	
-	
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
 }
