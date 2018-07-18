@@ -14,12 +14,22 @@
 					<div class="row">
 		    		<form:input type="password"  path="password" placeholder="Password"/>
 					</div>	
+					<div>${errorMessage}</div>
 					
 					<div class="row">	
-		    			<button type="submit"  value="Login">Login</button>
-					</div>	 
+		    			<button type="submit"  value="SignIn">Sign In</button>
+					</div>	
+					
 					
 		 </form:form>
+		 <div>	
+		    	<form action="Registration" method="get">				
+					<div class="row">	
+		    			<button type="submit"  value="SignUp">Sign Up</button>
+					</div>	 
+					
+		 		</form>
+		</div>
  </div>
  
  </div>

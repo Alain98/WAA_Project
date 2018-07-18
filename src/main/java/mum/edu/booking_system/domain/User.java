@@ -16,33 +16,54 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
+import mum.edu.booking_system.annotation.FieldsValueMatch;
+
+@FieldsValueMatch.List({ 
+    @FieldsValueMatch(
+      field = "password", 
+      fieldMatch = "confirmPassword", 
+      message = "Password and Confirm Password fields should be same"
+    )
+})
 @Entity
 public class User {
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
-	@Column
+	@Column(name="userId")
 	private Integer userId;
 	
-	@Column
+	@Size(min=4, max=20)
+	@Column(name="firstName")
 	private String firstName;
 	
-	@Column
+	@Column(name="lastName")
+	@Size(min=4, max=20)
 	private String lastName;
 	
-	@Column
+	@Column(name="address")
+	@NotEmpty
 	private String address;
 	
-	@Column
+	@Column(name="mobile")
+	@NotEmpty
 	private String mobile;
 	
-	@Column
+	@Column(name="email")
+	@NotEmpty @Email
 	private String email;
 	
-	@Column
+	@Column(name="password")
+	@NotNull @Size(min=5)
 	private String password;
+	
+	private String confirmPassword;
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<Room_booking> room_bookings;
@@ -53,6 +74,14 @@ public class User {
 
 	public void setUserId(Integer userId) {
 		this.userId = userId;
+	}
+
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
 	}
 
 	public String getFirstName() {

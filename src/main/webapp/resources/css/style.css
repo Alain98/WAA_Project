@@ -563,7 +563,7 @@ hr {
 }
 
 /*------------------------------ Login Form ------------------------------*/
-#loginForm input, #loginForm select{
+#loginForm input, #loginForm select, #RegistrationForm input, #RegistrationForm select{
 	
 	width: 500px;
 	height: 55px;
@@ -571,7 +571,7 @@ hr {
 	 font-family: "Times New Roman";
 }
 
- #loginForm textarea{
+ #loginForm textarea, #RegistrationForm textarea{
 	
 	width: 500px;
 	height: 150px;
@@ -579,12 +579,12 @@ hr {
 	 font-family: "Times New Roman";
 }
 
-#loginForm select{
+#loginForm select, #RegistrationForm select{
 	background-color:#A3BBC4;
 	
 }
 
-#loginForm button{
+#loginForm button, #RegistrationForm button{
 	background-color:#456E99; 
 	width: 500px;
 	height: 55px;
@@ -596,7 +596,7 @@ hr {
 
 
 
-#loginForm{
+#loginForm, #RegistrationForm{
 	width: 500px;
 	margin-left: auto;
 	margin-right: auto;

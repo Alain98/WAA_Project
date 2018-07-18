@@ -1,6 +1,5 @@
 package mum.edu.booking_system.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,17 +27,17 @@ public class HotelController {
 	@RequestMapping(value = "/room")
 	public String getRooms(@RequestParam("id") Integer hotelId, Model model) {
 		
-		List<Rooms> rooms = new ArrayList<>();
-		for(Rooms room : hotelService.getRoomsByHotelId(hotelId)) {
-			if(room.getStatus().equals("available")) {
-				rooms.add(room);
-			}
-		}
+		List<Rooms> rooms = hotelService.getRoomsByHotelId(hotelId);
 		model.addAttribute("hotel", hotelService.getHotelById(hotelId));
 		model.addAttribute("rooms", rooms);
 		return "rooms";
 	}
 
+	@RequestMapping(value="/searchHotel")
+	public String searchHotel() {
+		return "search";
+	}
+	
 	 @RequestMapping(value = "/search")
 	    public String getHotels(@RequestParam(value = "state", required = false) String state,
 	                            @RequestParam(value = "city", required = false) String city,
@@ -46,7 +45,7 @@ public class HotelController {
 	                            Pageable pageable,*/ Model model) {
 		 
 		 	
-		    hotelService.initialiseHotelsInDatabase();
+		 hotelService.initialiseHotelsInDatabase();
 		 
 	        List<Hotel>/*Page<Hotel>*/ results = hotelService.getAllHotelsByLocation(state, city/*, postcode, pageable*/);
 	        model.addAttribute("city", city);
