@@ -3,7 +3,7 @@
  */
 package mum.edu.booking_system.domain;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,7 +24,16 @@ public class Room_booking {
 	private Integer Room_bookingId;
 	
 	@Column
-	private Date booking_Date;
+	private LocalDate checkIn;
+	
+	@Column
+	private LocalDate checkOut;
+	
+	@Column
+	private int adults;
+	
+	@Column
+	private int children;
 	
 	@Column
 	private Integer roomId;
@@ -43,12 +52,36 @@ public class Room_booking {
 		Room_bookingId = room_bookingId;
 	}
 
-	public Date getBooking_Date() {
-		return booking_Date;
+	public LocalDate getCheckIn() {
+		return checkIn;
 	}
 
-	public void setBooking_Date(Date booking_Date) {
-		this.booking_Date = booking_Date;
+	public void setCheckIn(LocalDate checkIn) {
+		this.checkIn = checkIn;
+	}
+
+	public LocalDate getCheckOut() {
+		return checkOut;
+	}
+
+	public void setCheckOut(LocalDate checkOut) {
+		this.checkOut = checkOut;
+	}
+
+	public int getAdults() {
+		return adults;
+	}
+
+	public void setAdults(int adults) {
+		this.adults = adults;
+	}
+
+	public int getChildren() {
+		return children;
+	}
+
+	public void setChildren(int children) {
+		this.children = children;
 	}
 
 	public Integer getRoomId() {

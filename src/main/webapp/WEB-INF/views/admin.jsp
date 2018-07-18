@@ -5,15 +5,15 @@
 	<jsp:include page="slide.jsp"/>
 	  
 	  <c:choose>
-		<c:when test="${not empty rooms}">
-			<h1 align="center">List of available rooms in ${hotel.name}:</h1>
+		<c:when test="${not empty bookings}">
+			<h1 align="center">List of all reservation in ${hotel.name}:</h1>
 			  <div id="rowImg"> 
 			      <c:forEach items="${rooms}" var="room">
 			      	  <div id="column">
 					    <img src="<c:url value="/resource/images/rooms/${room.roomsId}.png"></c:url>" >
 						<p style="color: black;"> ${room.description}</p>
 						<p style="color: black;"> ${room.costPerNight} $</p>
-						<p><a href="<spring:url value="/booking/room?idr=${room.roomsId}&idh=${hotel.hotelId}" /> ">Reserve Now</a></p>
+						<p><a href="<spring:url value="/booking/room?idr=${room.roomsId}?idh=${hotel.hotelId}" /> ">Reserve Now</a></p>
 					  </div>
 			      </c:forEach>
 			</div>

@@ -100,13 +100,13 @@ if(n==null){
 						<li>
 							<a href="about.jsp">About</a>
 						</li>
-						<li>
+						<!--<li>
 							<a href="rooms.jsp">Rooms</a>
 						</li>
 						
 						<li>
 							<a href="food.jsp">Food</a>
-						</li>
+						</li>  -->
 						<li>
 							<a href="registeration.jsp">Join Us</a>
 						</li>
