@@ -26,7 +26,7 @@ import javax.persistence.OneToOne;
 public class Hotel {
 	
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	//@GeneratedValue(strategy= GenerationType.AUTO)
 	@Column
 	private Integer hotelId;
 	

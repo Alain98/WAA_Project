@@ -16,7 +16,7 @@ import javax.persistence.Id;
 public class Rooms {
 	
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	//@GeneratedValue(strategy= GenerationType.AUTO)
 	@Column
 	private Integer roomsId;
 	
@@ -28,7 +28,13 @@ public class Rooms {
 	
 	@Column 
 	private String status;
-
+	
+	@Column
+	private double costPerNight;
+	
+	@Column
+	private int bed;
+	
 	public Integer getRoomsId() {
 		return roomsId;
 	}
@@ -60,7 +66,21 @@ public class Rooms {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-	
+
+	public double getCostPerNight() {
+		return costPerNight;
+	}
+
+	public void setCostPerNight(double costPerNight) {
+		this.costPerNight = costPerNight;
+	}
+
+	public int getBed() {
+		return bed;
+	}
+
+	public void setBed(int bed) {
+		this.bed = bed;
+	}
 
 }
