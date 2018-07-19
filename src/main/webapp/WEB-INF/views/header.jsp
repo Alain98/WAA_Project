@@ -69,9 +69,9 @@ body {
 <body>
 <div id="header">
 				
-				<div id="logo">
+				<!-- div id="logo">
 					<a href="index.jsp"><img src="<c:url value="/resource/images/TripleAa.png"></c:url>" alt="LOGO" height="112" width="118"></a>
-				</div>
+				</div-->
 				
 				
 				
@@ -100,7 +100,7 @@ body {
 						
 						<c:if test="${not empty authUser}">
 							<li style="align: right;">
-								<a href="#">Logout</a>
+								<a href="Logout">Logout</a>
 							</li>
 						</c:if>
 					</ul>
