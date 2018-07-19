@@ -15,7 +15,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -67,6 +69,8 @@ public class User {
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<Room_booking> room_bookings;
+	
+
 
 	public Integer getUserId() {
 		return userId;
@@ -139,8 +143,5 @@ public class User {
 	public void setRoom_bookings(Set<Room_booking> room_bookings) {
 		this.room_bookings = room_bookings;
 	}
-	
-	
-	
-	
+
 }

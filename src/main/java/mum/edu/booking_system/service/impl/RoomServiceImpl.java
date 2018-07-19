@@ -27,9 +27,9 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 	@Override
-	public Rooms findRoomById(Integer roomId) {
+	public Rooms findRoomById(Integer roomsId) {
 		
-		return roomRepository.locateOneRoomsById(roomId);
+		return roomRepository.locateOneRoomsById(roomsId);
 	}
 
 	@Override

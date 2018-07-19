@@ -70,26 +70,10 @@ body {
 <div id="header">
 				
 				<div id="logo">
-					<a href="index.jsp"><img src="<c:url value="/resource/images/logo.png"></c:url>" alt="LOGO" height="112" width="118"></a>
+					<a href="index.jsp"><img src="<c:url value="/resource/images/TripleAa.png"></c:url>" alt="LOGO" height="112" width="118"></a>
 				</div>
 				
-				<% 
-
-String n=(String)session.getAttribute("uname");  
-//out.print("Hello "+n);  
-if(n==null){
-	response.sendRedirect("index.jsp");
-	
-}else{
-	%>
-	<div style="clear: both; float: right; margin-right: 25px; padding-bottom: 10px; margin-top: -35px;">
-	<a href="logout.jsp">Logout</a>
-	</div>
-	<% 
-	
-}
-
-%>
+				
 				
 				<div id="navigation">
 					<a href="#" id="menu-toggle">Menu</a>
@@ -113,8 +97,17 @@ if(n==null){
 						<li>
 							<a href="contact.jsp">Contact</a>
 						</li>
+						
+						<c:if test="${not empty authUser}">
+							<li style="align: right;">
+								<a href="#">Logout</a>
+							</li>
+						</c:if>
 					</ul>
+					
 				</div>
+				
+				
 				
 			</div>
 			

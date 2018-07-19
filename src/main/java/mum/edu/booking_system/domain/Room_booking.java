@@ -5,11 +5,15 @@ package mum.edu.booking_system.domain;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author alain
@@ -24,9 +28,11 @@ public class Room_booking {
 	private Integer Room_bookingId;
 	
 	@Column
+	@NotNull
 	private LocalDate checkIn;
 	
 	@Column
+	@NotNull
 	private LocalDate checkOut;
 	
 	@Column
@@ -43,6 +49,18 @@ public class Room_booking {
 	
 	@Column
 	private Integer hotelId;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="payment_id", unique = true )
+	private Payment payment;
+
+	public Payment getPayment() {
+		return payment;
+	}
+
+	public void setPayment(Payment payment) {
+		this.payment = payment;
+	}
 
 	public Integer getRoom_bookingId() {
 		return Room_bookingId;

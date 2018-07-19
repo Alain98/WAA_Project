@@ -6,7 +6,7 @@
 			<jsp:include page="slide.jsp"/>
 		
            <div id="loginForm">
-       		<form:form modelAttribute="booking" action="/room" method="post">
+       		<form:form modelAttribute="booking" action="room" method="post">
     		
 		    		<div class="row">
 		    			<label>Check-in</label> 
@@ -42,10 +42,11 @@
 <div class="form-group">
 <label for="cardNumber">CARD NUMBER</label>
 <div class="input-group">
-<input 
+<form:input 
 type="tel"
 class="form-control"
 name="cardNumber"
+path="payment.cardNumber"
 placeholder="Valid Card Number"
 autocomplete="cc-number"
 autofocus 
@@ -59,26 +60,26 @@ autofocus
 <div class="col-xs-7 col-md-7">
 <div class="form-group">
 <label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
-<input 
+<form:input 
 type="tel" 
 class="form-control" 
 name="cardExpiry"
 placeholder="MM / YY"
 autocomplete="cc-exp"
-
+path="payment.ExpirationDate"
 />
 </div>
 </div>
 <div class="col-xs-5 col-md-5 pull-right">
 <div class="form-group">
 <label for="cardCVC">CV CODE</label>
-<input 
+<form:input 
+path="payment.cvCode"
 type="tel" 
 class="form-control"
 name="cardCVC"
 placeholder="CVC"
 autocomplete="cc-csc"
-
 />
 </div>
 </div>

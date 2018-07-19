@@ -22,6 +22,9 @@ public class HomeController {
 	@Autowired
 	UserService userService;
 	
+	@Autowired
+	HotelService hotelService;
+	
 	boolean isDefaultDataAdd=false;
 
 	@RequestMapping(value= {"/"})
@@ -30,6 +33,7 @@ public class HomeController {
 		
 		if(!isDefaultDataAdd) {
 			userService.initialiseUsersInDatabase();
+			hotelService.initialiseHotelsInDatabase();
 			isDefaultDataAdd=true;
 		}
 		return "index";

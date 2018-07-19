@@ -5,6 +5,6 @@
 <jsp:include page="slide.jsp"/>
 
 <h1>reservation made successfully</h1>
- <p align="center"<a href="<spring:url value="/home" /> ">Go back home</a>></p>
+ <p align="center"><a href="<spring:url value="/hotels/searchHotel" /> ">Go back home</a></p>
  </div>
 <jsp:include page="footer.jsp"/>
