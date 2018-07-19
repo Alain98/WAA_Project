@@ -63,10 +63,6 @@ public class HotelController {
 	 }
 	 
 	 
-	 @RequestMapping(value="/Login")
-	 public String displaySearch() {
-		 return "redirect:/hotels/searchHotel";
-	 }
 	 @RequestMapping(value="/about")
 	 public String displayAbout() {
 		 return "about";

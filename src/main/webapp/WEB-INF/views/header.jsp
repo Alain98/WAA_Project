@@ -78,9 +78,19 @@ body {
 				<div id="navigation">
 					<a href="#" id="menu-toggle">Menu</a>
 					<ul id="menu-wrapper">
-						<li class="selected">
-							<a href="Login">Home</a>
+					
+						<c:if test="${empty authUser}">
+						<li>
+							<a href="Login">Login</a>
 						</li>
+						</c:if>
+						
+						<c:if test="${not empty authUser}">
+						<li>
+							<a href="searchHotel">Search</a>
+						</li>
+						</c:if>
+						
 						<c:if test="${not empty authUser}">
 						<li>
 							<a href="about">About</a>
