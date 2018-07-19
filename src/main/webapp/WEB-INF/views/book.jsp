@@ -11,10 +11,12 @@
 		    		<div class="row">
 		    			<label>Check-in</label> 
 		    			<form:input path="checkIn" type="date" placeholder="mm/dd/yyyy"/>
+		    			<form:errors path="checkIn" cssStyle="color : red;"/>
 		  			</div> 
 		  			
 					<div class="row">
 		    		    Check-out <form:input path="checkOut" type="date" placeholder="mm/dd/yyyy"/>
+		    		    <form:errors path="checkOut" cssStyle="color : red;"/>
 					</div>	
 					
 					<div class="row">
@@ -48,9 +50,8 @@ class="form-control"
 name="cardNumber"
 path="payment.cardNumber"
 placeholder="Valid Card Number"
-autocomplete="cc-number"
-autofocus 
-/>
+autocomplete="cc-number"/>
+<form:errors path="payment.cardNumber" cssStyle="color : red;"/>
 <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
 </div>
 </div>                            
@@ -68,6 +69,7 @@ placeholder="MM / YY"
 autocomplete="cc-exp"
 path="payment.ExpirationDate"
 />
+<form:errors path="payment.ExpirationDate" cssStyle="color : red;"/>
 </div>
 </div>
 <div class="col-xs-5 col-md-5 pull-right">
@@ -81,6 +83,7 @@ name="cardCVC"
 placeholder="CVC"
 autocomplete="cc-csc"
 />
+<form:errors path="payment.cvCode" cssStyle="color : red;"/>
 </div>
 </div>
 </div>

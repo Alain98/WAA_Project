@@ -27,7 +27,7 @@ public class AuthenticationFilter implements Filter
         Object objCurrUser=req.getSession().getAttribute(Constants.USER_ATTRIBUTE);
 
         if(objCurrUser==null){
-            resp.sendRedirect("Login");
+            resp.sendRedirect("/booking_system");
             return;
         }
 

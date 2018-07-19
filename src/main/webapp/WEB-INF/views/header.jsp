@@ -69,21 +69,33 @@ body {
 <body>
 <div id="header">
 				
-				<div id="logo">
+				<!-- div id="logo">
 					<a href="index.jsp"><img src="<c:url value="/resource/images/TripleAa.png"></c:url>" alt="LOGO" height="112" width="118"></a>
-				</div>
+				</div-->
 				
 				
 				
 				<div id="navigation">
 					<a href="#" id="menu-toggle">Menu</a>
 					<ul id="menu-wrapper">
-						<li class="selected">
-							<a href="index.jsp">Home</a>
-						</li>
+					
+						<c:if test="${empty authUser}">
 						<li>
-							<a href="about.jsp">About</a>
+							<a href="Login">Login</a>
 						</li>
+						</c:if>
+						
+						<c:if test="${not empty authUser}">
+						<li>
+							<a href="searchHotel">Search</a>
+						</li>
+						</c:if>
+						
+						<c:if test="${not empty authUser}">
+						<li>
+							<a href="about">About</a>
+						</li>
+						</c:if>
 						<!--<li>
 							<a href="rooms.jsp">Rooms</a>
 						</li>
@@ -91,16 +103,22 @@ body {
 						<li>
 							<a href="food.jsp">Food</a>
 						</li>  -->
+						
+						<c:if test="${empty authUser}">
 						<li>
-							<a href="registeration.jsp">Join Us</a>
+							<a href="Registration">Registration</a>
 						</li>
+						</c:if>
+						
+						<c:if test="${not empty authUser}">
 						<li>
-							<a href="contact.jsp">Contact</a>
+							<a href="contact">Contact</a>
 						</li>
+						</c:if>
 						
 						<c:if test="${not empty authUser}">
 							<li style="align: right;">
-								<a href="#">Logout</a>
+								<a href="Logout">Logout</a>
 							</li>
 						</c:if>
 					</ul>

@@ -56,4 +56,15 @@ public class HotelController {
 	        model.addAttribute("hotels", results);
 	        return "hotels";
 	    }
+	 
+	 @RequestMapping(value="/contact")
+	 public String displayContacts() {
+		 return "contact";
+	 }
+	 
+	 
+	 @RequestMapping(value="/about")
+	 public String displayAbout() {
+		 return "about";
+	 }
 }

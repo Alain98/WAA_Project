@@ -14,7 +14,7 @@
 					<div class="row">
 		    		<form:input type="password"  path="password" placeholder="Password"/>
 					</div>	
-					<div>${errorMessage}</div>
+					<div style="color:red;">${errorMessage}</div>
 					
 					<div class="row">	
 		    			<button type="submit"  value="SignIn">Sign In</button>

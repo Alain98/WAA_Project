@@ -1,5 +1,7 @@
 package mum.edu.booking_system.domain;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +10,8 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Payment {
@@ -23,11 +27,13 @@ public class Payment {
 	
 	@Column
 	@NotEmpty
+	//@DateTimeFormat(pattern="MM/YY")
 	private String ExpirationDate;
 	
 	@Column
-	@NotEmpty
-	private String cvCode;
+	@NotNull
+	@Range(min=111, max=999, message="{Range.cvCode}")
+	private Integer cvCode;
 
 	public Integer getPaymentId() {
 		return paymentId;
@@ -53,11 +59,11 @@ public class Payment {
 		ExpirationDate = expirationDate;
 	}
 
-	public String getCvCode() {
+	public Integer getCvCode() {
 		return cvCode;
 	}
 
-	public void setCvCode(String cvCode) {
+	public void setCvCode(Integer cvCode) {
 		this.cvCode = cvCode;
 	}
 	

@@ -607,7 +607,9 @@ margin-bottom: 50px;
 .row{
 margin-bottom:10px;	
 }
-
+.err{
+	color: red;
+}
 #menu-toggle{
 display: none;	
 }

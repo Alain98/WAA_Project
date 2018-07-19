@@ -3,9 +3,12 @@
  */
 package mum.edu.booking_system.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -47,20 +50,26 @@ public class BookingController {
 	}
 	
 	@RequestMapping(value="/room", method = RequestMethod.POST)
-	public String saveBooking(@ModelAttribute("booking") Room_booking booking, 
+	public String saveBooking(@Valid @ModelAttribute("booking") Room_booking booking, 
+			BindingResult results,
 			@SessionAttribute("bookingSession") Room_booking bookingSession, 
 			@SessionAttribute(Constants.USER_ATTRIBUTE) User user) {
 		
-		Rooms room = roomService.findRoomById(bookingSession.getRoomId());
-		room.setStatus("busy");
-		roomService.save(room);
-		
-		booking.setUserId(user.getUserId());
-		booking.setHotelId(bookingSession.getHotelId());
-		booking.setRoomId(bookingSession.getRoomId());
-		room_bookingService.save(booking);
-		
-		return "succes";
+		if(results.hasErrors()) {
+			return "book";
+		}
+		else {
+			Rooms room = roomService.findRoomById(bookingSession.getRoomId());
+			room.setStatus("busy");
+			roomService.save(room);
+			
+			booking.setUserId(user.getUserId());
+			booking.setHotelId(bookingSession.getHotelId());
+			booking.setRoomId(bookingSession.getRoomId());
+			room_bookingService.save(booking);
+			
+			return "succes";
+		}
 	}
 
 }

@@ -13,7 +13,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * @author alain
@@ -28,12 +31,12 @@ public class Room_booking {
 	private Integer Room_bookingId;
 	
 	@Column
-	@NotNull
-	private LocalDate checkIn;
+	@NotEmpty
+	private String checkIn;
 	
 	@Column
-	@NotNull
-	private LocalDate checkOut;
+	@NotEmpty
+	private String checkOut;
 	
 	@Column
 	private int adults;
@@ -50,6 +53,7 @@ public class Room_booking {
 	@Column
 	private Integer hotelId;
 	
+	@Valid
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="payment_id", unique = true )
 	private Payment payment;
@@ -70,19 +74,19 @@ public class Room_booking {
 		Room_bookingId = room_bookingId;
 	}
 
-	public LocalDate getCheckIn() {
+	public String getCheckIn() {
 		return checkIn;
 	}
 
-	public void setCheckIn(LocalDate checkIn) {
+	public void setCheckIn(String checkIn) {
 		this.checkIn = checkIn;
 	}
 
-	public LocalDate getCheckOut() {
+	public String getCheckOut() {
 		return checkOut;
 	}
 
-	public void setCheckOut(LocalDate checkOut) {
+	public void setCheckOut(String checkOut) {
 		this.checkOut = checkOut;
 	}
 

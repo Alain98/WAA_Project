@@ -4,8 +4,13 @@
 
 <jsp:include page="slide.jsp"/>
 
-<h1>About US:</h1>
- <p></p>
+<h1>Group Members:</h1>
+ <p>1) Avenash Kumar (POC)</p>
+ <p>2) Alain Mossebo</p>
+ <p>3) Aron Afewerki</p>
+ 
+ <h1>Slogan:</h1>
+ <p>Unity, Faith and Discipline</p>
  <pre>
  
  </pre>
