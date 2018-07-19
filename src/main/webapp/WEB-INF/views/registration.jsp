@@ -4,7 +4,7 @@
 
 			<jsp:include page="slide.jsp"/>
 		
-           <div id=RegistrationForm>
+           <div id="RegistrationForm">
        		<form:form modelAttribute="user" action="Registration" method="post">
     		
     				<div class = "err"><form:errors path = "firstName" cssClass = "error" /></div>

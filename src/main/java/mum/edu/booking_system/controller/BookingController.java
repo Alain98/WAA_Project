@@ -3,6 +3,7 @@
  */
 package mum.edu.booking_system.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,6 +71,14 @@ public class BookingController {
 			
 			return "succes";
 		}
+	}
+	
+	@RequestMapping(value="/Logout", method=RequestMethod.GET)
+	public String logout(HttpSession session, Model model) {
+		session.invalidate();
+		if(model.containsAttribute(Constants.USER_ATTRIBUTE)) 
+			  model.asMap().remove(Constants.USER_ATTRIBUTE);
+		return "redirect:/";
 	}
 
 }
