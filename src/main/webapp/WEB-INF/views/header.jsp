@@ -79,11 +79,13 @@ body {
 					<a href="#" id="menu-toggle">Menu</a>
 					<ul id="menu-wrapper">
 						<li class="selected">
-							<a href="index.jsp">Home</a>
+							<a href="Login">Home</a>
 						</li>
+						<c:if test="${not empty authUser}">
 						<li>
-							<a href="about.jsp">About</a>
+							<a href="about">About</a>
 						</li>
+						</c:if>
 						<!--<li>
 							<a href="rooms.jsp">Rooms</a>
 						</li>
@@ -91,12 +93,18 @@ body {
 						<li>
 							<a href="food.jsp">Food</a>
 						</li>  -->
+						
+						<c:if test="${empty authUser}">
 						<li>
-							<a href="registeration.jsp">Join Us</a>
+							<a href="Registration">Registration</a>
 						</li>
+						</c:if>
+						
+						<c:if test="${not empty authUser}">
 						<li>
-							<a href="contact.jsp">Contact</a>
+							<a href="contact">Contact</a>
 						</li>
+						</c:if>
 						
 						<c:if test="${not empty authUser}">
 							<li style="align: right;">
